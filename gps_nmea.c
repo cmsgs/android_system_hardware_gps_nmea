@@ -1238,6 +1238,12 @@ nmea_gps_inject_time(GpsUtcTime time, int64_t timeReference, int uncertainty)
     return 0;
 }
 
+static int
+nmea_gps_inject_location(double latitude, double longitude, float accuracy)
+{
+    return 0;
+}
+
 static void
 nmea_gps_delete_aiding_data(GpsAidingData flags)
 {
@@ -1274,9 +1280,9 @@ static const GpsInterface  freerunnerGpsInterface = {
     nmea_gps_init,
     nmea_gps_start,
     nmea_gps_stop,
-    nmea_gps_set_fix_frequency,
     nmea_gps_cleanup,
     nmea_gps_inject_time,
+    nmea_gps_inject_location,
     nmea_gps_delete_aiding_data,
     nmea_gps_set_position_mode,
     nmea_gps_get_extension,
